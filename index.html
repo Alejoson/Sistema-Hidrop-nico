@@ -1,0 +1,721 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistema Hidropónico - Tecnología e Innovación</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Plus Jakarta Sans', 'sans-serif'],
+                    },
+                    colors: {
+                        hydro: {
+                            50: '#f0fdf4',
+                            100: '#dcfce7',
+                            200: '#bbf7d0',
+                            400: '#4ade80',
+                            500: '#22c55e',
+                            600: '#16a34a',
+                            700: '#15803d',
+                            800: '#166534',
+                            900: '#14532d',
+                        },
+                        aqua: {
+                            500: '#06b6d4',
+                            600: '#0891b2',
+                            700: '#0e7490',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .glow-effect {
+            box-shadow: 0 0 25px -5px rgba(34, 197, 94, 0.3);
+        }
+        .drag-over {
+            border-color: #22c55e !important;
+            background-color: rgba(34, 197, 94, 0.08) !important;
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800 font-sans antialiased min-h-screen flex flex-col justify-between">
+
+    <header class="sticky top-0 z-40 w-full glass-card border-b border-emerald-100 shadow-sm transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <div class="flex items-center space-x-3">
+                    <div class="w-11 h-11 bg-emerald-600 rounded-2xl flex items-center justify-center text-white shadow-lg shadow-emerald-500/30 transform hover:rotate-6 transition-transform">
+                        <i class="fa-solid fa-seedling text-2xl"></i>
+                    </div>
+                    <div>
+                        <span class="text-2xl font-extrabold bg-gradient-to-r from-emerald-600 to-teal-600 bg-clip-text text-transparent">HydroTech</span>
+                        <p class="text-xs text-slate-500 font-medium">Cultivos del Futuro</p>
+                    </div>
+                </div>
+
+                <!-- Desktop Navigation -->
+                <nav class="hidden md:flex items-center space-x-1 lg:space-x-2">
+                    <a href="#inicio" class="px-4 py-2 text-sm font-semibold text-slate-700 hover:text-emerald-600 rounded-xl hover:bg-emerald-50 transition-colors">Inicio</a>
+                    <a href="#tecnologia" class="px-4 py-2 text-sm font-semibold text-slate-700 hover:text-emerald-600 rounded-xl hover:bg-emerald-50 transition-colors">Tecnología e Innovación</a>
+                    <a href="#juego" class="px-4 py-2 text-sm font-semibold text-slate-700 hover:text-emerald-600 rounded-xl hover:bg-emerald-50 transition-colors flex items-center gap-2">
+                        <i class="fa-solid fa-gamepad text-emerald-500"></i> Juego Interactivo
+                    </a>
+                </nav>
+
+                <!-- Mobile Menu Button -->
+                <div class="md:hidden flex items-center">
+                    <button id="mobile-menu-btn" class="p-2 text-slate-600 hover:text-emerald-600 focus:outline-none">
+                        <i class="fa-solid fa-bars text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu Dropdown -->
+        <div id="mobile-menu" class="hidden md:hidden border-t border-slate-100 bg-white px-4 pt-2 pb-4 space-y-2 shadow-lg">
+            <a href="#inicio" class="block px-3 py-2 text-base font-medium text-slate-700 rounded-lg hover:bg-emerald-50 hover:text-emerald-600">Inicio</a>
+            <a href="#tecnologia" class="block px-3 py-2 text-base font-medium text-slate-700 rounded-lg hover:bg-emerald-50 hover:text-emerald-600">Tecnología e Innovación</a>
+            <a href="#juego" class="block px-3 py-2 text-base font-medium text-slate-700 rounded-lg hover:bg-emerald-50 hover:text-emerald-600">Juego Interactivo</a>
+        </div>
+    </header>
+
+    <main class="flex-grow">
+        <section id="inicio" class="relative overflow-hidden py-16 lg:py-24 bg-gradient-to-b from-emerald-50/50 via-white to-slate-50">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                    <div class="space-y-6 text-center lg:text-left">
+                        <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-emerald-100/80 text-emerald-800 text-xs font-bold uppercase tracking-wider">
+                            <i class="fa-solid fa-leaf text-emerald-600"></i> Hidroponía de Alta Eficiencia
+                        </div>
+                        <h1 class="text-4xl sm:text-5xl lg:text-6xl font-black text-slate-900 tracking-tight leading-none">
+                            Optimiza el uso del agua con <span class="bg-gradient-to-r from-emerald-600 to-teal-500 bg-clip-text text-transparent">tecnología inteligente</span>
+                        </h1>
+                        <p class="text-lg text-slate-600 max-w-xl mx-auto lg:mx-0">
+                            Descubre qué plantas prosperan en sistemas de cultivo sin suelo, optimiza nutrientes y pon a prueba tus conocimientos sobre agricultura hidropónica.
+                        </p>
+                        <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+                            <a href="#tecnologia" class="px-8 py-4 bg-emerald-600 text-white font-bold rounded-2xl shadow-lg shadow-emerald-600/30 hover:bg-emerald-700 hover:shadow-xl transition-all text-center">
+                                Explora los Cultivos
+                            </a>
+                            <a href="#juego" class="px-8 py-4 bg-white text-slate-700 font-bold rounded-2xl shadow-md border border-slate-200 hover:bg-slate-50 transition-all text-center flex items-center justify-center gap-2">
+                                <i class="fa-solid fa-gamepad text-emerald-600"></i> Jugar Clasificador
+                            </a>
+                        </div>
+                    </div>
+                    <div class="relative flex justify-center">
+                        <div class="w-full max-w-md bg-white p-6 rounded-3xl shadow-2xl border border-slate-100 relative">
+                            <div class="relative h-72 rounded-2xl overflow-hidden bg-emerald-950 flex items-center justify-center">
+                                <img src="https://images.unsplash.com/photo-1585320806297-9794b3e4eeae?auto=format&fit=crop&w=800&q=80" alt="Hidroponía" class="w-full h-full object-cover opacity-85 hover:scale-105 transition-transform duration-500">
+                                <div class="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent flex items-end p-6">
+                                    <div class="text-white">
+                                        <p class="text-xs uppercase font-bold text-emerald-400 tracking-wider">Ahorro Eficiente</p>
+                                        <h3 class="text-xl font-bold">Hasta 90% menos agua</h3>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="tecnologia" class="py-20 bg-white">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center max-w-3xl mx-auto mb-16">
+                    <span class="text-emerald-600 font-bold text-sm tracking-widest uppercase">Catálogo Técnico</span>
+                    <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 mt-2">Tecnología e Innovación en Cada Cultivo</h2>
+                    <p class="text-slate-600 mt-4 text-base">
+                        Selecciona cualquier cultivo a continuación para explorar sus parámetros técnicos, rango de pH, electroconductividad (EC) y recomendaciones hidropónicas específicas.
+                    </p>
+                </div>
+
+                <!-- Plant Categories Grid -->
+                <div class="space-y-12">
+                    
+                    <!-- CATEGORY 1: Recomendadas / Principales -->
+                    <div>
+                        <div class="flex items-center gap-3 mb-6 pb-2 border-b border-emerald-100">
+                            <div class="p-2 bg-emerald-100 rounded-lg text-emerald-600">
+                                <i class="fa-solid fa-circle-check text-xl"></i>
+                            </div>
+                            <h3 class="text-2xl font-bold text-slate-800">Cultivos Principales e Ideales</h3>
+                            <span class="bg-emerald-100 text-emerald-800 text-xs font-bold px-3 py-1 rounded-full">Recomendado</span>
+                        </div>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <!-- Aromáticas Card -->
+                            <div onclick="openPlantModal('aromaticas')" class="group bg-slate-50 border border-slate-200 hover:border-emerald-500 rounded-2xl p-6 cursor-pointer transition-all hover:shadow-xl hover:-translate-y-1 flex flex-col justify-between">
+                                <div class="flex items-start justify-between">
+                                    <div class="flex items-center gap-4">
+                                        <div class="w-14 h-14 bg-emerald-500/10 rounded-2xl flex items-center justify-center text-emerald-600 text-2xl group-hover:bg-emerald-600 group-hover:text-white transition-colors">
+                                            <i class="fa-solid fa-mortar-pestle"></i>
+                                        </div>
+                                        <div>
+                                            <h4 class="text-xl font-bold text-slate-900">Plantas Aromáticas</h4>
+                                            <p class="text-sm text-slate-500">Albahaca, Menta, Romero, Cilantro</p>
+                                        </div>
+                                    </div>
+                                    <span class="text-slate-400 group-hover:text-emerald-600 transition-colors"><i class="fa-solid fa-arrow-right text-lg"></i></span>
+                                </div>
+                                <div class="mt-6 pt-4 border-t border-slate-200 flex flex-wrap gap-4 text-xs font-medium text-slate-600">
+                                    <span class="bg-white px-3 py-1.5 rounded-lg border border-slate-200"><i class="fa-solid fa-droplet text-teal-500 mr-1"></i> pH: 5.5 - 6.5</span>
+                                    <span class="bg-white px-3 py-1.5 rounded-lg border border-slate-200"><i class="fa-solid fa-bolt text-amber-500 mr-1"></i> EC: 1.0 - 1.6 mS/cm</span>
+                                </div>
+                            </div>
+
+                            <!-- Lechuga Card -->
+                            <div onclick="openPlantModal('lechuga')" class="group bg-slate-50 border border-slate-200 hover:border-emerald-500 rounded-2xl p-6 cursor-pointer transition-all hover:shadow-xl hover:-translate-y-1 flex flex-col justify-between">
+                                <div class="flex items-start justify-between">
+                                    <div class="flex items-center gap-4">
+                                        <div class="w-14 h-14 bg-emerald-500/10 rounded-2xl flex items-center justify-center text-emerald-600 text-2xl group-hover:bg-emerald-600 group-hover:text-white transition-colors">
+                                            <i class="fa-solid fa-leaf"></i>
+                                        </div>
+                                        <div>
+                                            <h4 class="text-xl font-bold text-slate-900">Lechuga</h4>
+                                            <p class="text-sm text-slate-500">Crespa, Romana, Romana Italiana</p>
+                                        </div>
+                                    </div>
+                                    <span class="text-slate-400 group-hover:text-emerald-600 transition-colors"><i class="fa-solid fa-arrow-right text-lg"></i></span>
+                                </div>
+                                <div class="mt-6 pt-4 border-t border-slate-200 flex flex-wrap gap-4 text-xs font-medium text-slate-600">
+                                    <span class="bg-white px-3 py-1.5 rounded-lg border border-slate-200"><i class="fa-solid fa-droplet text-teal-500 mr-1"></i> pH: 5.6 - 6.0</span>
+                                    <span class="bg-white px-3 py-1.5 rounded-lg border border-slate-200"><i class="fa-solid fa-bolt text-amber-500 mr-1"></i> EC: 0.8 - 1.2 mS/cm</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- CATEGORY 2: Opcionales -->
+                    <div>
+                        <div class="flex items-center gap-3 mb-6 pb-2 border-b border-amber-100">
+                            <div class="p-2 bg-amber-100 rounded-lg text-amber-600">
+                                <i class="fa-solid fa-circle-exclamation text-xl"></i>
+                            </div>
+                            <h3 class="text-2xl font-bold text-slate-800">Cultivos Opcionales / Especiales</h3>
+                            <span class="bg-amber-100 text-amber-800 text-xs font-bold px-3 py-1 rounded-full">Requieren Ajustes</span>
+                        </div>
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                            <!-- Acelga Card -->
+                            <div onclick="openPlantModal('acelga')" class="group bg-slate-50 border border-slate-200 hover:border-amber-500 rounded-2xl p-6 cursor-pointer transition-all hover:shadow-xl hover:-translate-y-1">
+                                <div class="flex items-center gap-4 mb-4">
+                                    <div class="w-12 h-12 bg-amber-500/10 rounded-2xl flex items-center justify-center text-amber-600 text-xl group-hover:bg-amber-500 group-hover:text-white transition-colors">
+                                        <i class="fa-solid fa-seedling"></i>
+                                    </div>
+                                    <div>
+                                        <h4 class="text-lg font-bold text-slate-900">Acelga</h4>
+                                        <p class="text-xs text-slate-500">Hoja Verde y Pencas</p>
+                                    </div>
+                                </div>
+                                <p class="text-xs text-slate-600 line-clamp-2">Exigente en oxigenación de raíces y soporte estructural de sustrato.</p>
+                            </div>
+
+                            <!-- Banano Card -->
+                            <div onclick="openPlantModal('banano')" class="group bg-slate-50 border border-slate-200 hover:border-amber-500 rounded-2xl p-6 cursor-pointer transition-all hover:shadow-xl hover:-translate-y-1">
+                                <div class="flex items-center gap-4 mb-4">
+                                    <div class="w-12 h-12 bg-amber-500/10 rounded-2xl flex items-center justify-center text-amber-600 text-xl group-hover:bg-amber-500 group-hover:text-white transition-colors">
+                                        <i class="fa-solid fa-tree"></i>
+                                    </div>
+                                    <div>
+                                        <h4 class="text-lg font-bold text-slate-900">Banano (Musa)</h4>
+                                        <p class="text-xs text-slate-500">Hidroponía de Sustrato</p>
+                                    </div>
+                                </div>
+                                <p class="text-xs text-slate-600 line-clamp-2">Requiere contenedores gigantes o slabs especiales con goteo constante.</p>
+                            </div>
+
+                            <!-- Berro Card -->
+                            <div onclick="openPlantModal('berro')" class="group bg-slate-50 border border-slate-200 hover:border-amber-500 rounded-2xl p-6 cursor-pointer transition-all hover:shadow-xl hover:-translate-y-1">
+                                <div class="flex items-center gap-4 mb-4">
+                                    <div class="w-12 h-12 bg-amber-500/10 rounded-2xl flex items-center justify-center text-amber-600 text-xl group-hover:bg-amber-500 group-hover:text-white transition-colors">
+                                        <i class="fa-solid fa-water"></i>
+                                    </div>
+                                    <div>
+                                        <h4 class="text-lg font-bold text-slate-900">Berro</h4>
+                                        <p class="text-xs text-slate-500">Sistemas Acuáticos / Flujo</p>
+                                    </div>
+                                </div>
+                                <p class="text-xs text-slate-600 line-clamp-2">Ideal para canales de agua en constante movimiento y alta oxigenación.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- CATEGORY 3: No Recomendadas -->
+                    <div>
+                        <div class="flex items-center gap-3 mb-6 pb-2 border-b border-rose-100">
+                            <div class="p-2 bg-rose-100 rounded-lg text-rose-600">
+                                <i class="fa-solid fa-ban text-xl"></i>
+                            </div>
+                            <h3 class="text-2xl font-bold text-slate-800">No Recomendadas (Tubérculos)</h3>
+                            <span class="bg-rose-100 text-rose-800 text-xs font-bold px-3 py-1 rounded-full">Incompatibles en Agua Directa</span>
+                        </div>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <!-- Zanahoria Card -->
+                            <div onclick="openPlantModal('zanahoria')" class="group bg-slate-50 border border-slate-200 hover:border-rose-500 rounded-2xl p-6 cursor-pointer transition-all hover:shadow-xl hover:-translate-y-1">
+                                <div class="flex items-center gap-4">
+                                    <div class="w-12 h-12 bg-rose-500/10 rounded-2xl flex items-center justify-center text-rose-600 text-xl group-hover:bg-rose-600 group-hover:text-white transition-colors">
+                                        <i class="fa-solid fa-carrot"></i>
+                                    </div>
+                                    <div>
+                                        <h4 class="text-lg font-bold text-slate-900">Zanahoria</h4>
+                                        <p class="text-xs text-slate-500">Raíz de engorde subterráneo</p>
+                                    </div>
+                                </div>
+                                <p class="text-xs text-slate-600 mt-4">Sufre de deformaciones y pudrición radicular en agua estancada o tuberías convencionales.</p>
+                            </div>
+
+                            <!-- Papa Card -->
+                            <div onclick="openPlantModal('papa')" class="group bg-slate-50 border border-slate-200 hover:border-rose-500 rounded-2xl p-6 cursor-pointer transition-all hover:shadow-xl hover:-translate-y-1">
+                                <div class="flex items-center gap-4">
+                                    <div class="w-12 h-12 bg-rose-500/10 rounded-2xl flex items-center justify-center text-rose-600 text-xl group-hover:bg-rose-600 group-hover:text-white transition-colors">
+                                        <i class="fa-solid fa-cookie"></i>
+                                    </div>
+                                    <div>
+                                        <h4 class="text-lg font-bold text-slate-900">Papa (Patata)</h4>
+                                        <p class="text-xs text-slate-500">Tubérculo de desarrollo en oscuridad</p>
+                                    </div>
+                                </div>
+                                <p class="text-xs text-slate-600 mt-4">Requiere sistemas aeropónicos complejos o sustrato seco; en sistemas de agua tradicional se pudre rápidamente.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <section id="juego" class="py-20 bg-slate-900 text-white relative overflow-hidden">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+                <div class="text-center max-w-3xl mx-auto mb-12">
+                    <span class="text-emerald-400 font-bold text-sm tracking-widest uppercase">Desafío Interactivo</span>
+                    <h2 class="text-3xl sm:text-4xl font-extrabold mt-2">Clasificador de Cultivos Hidropónicos</h2>
+                    <p class="text-slate-400 mt-3 text-sm">
+                        Demuestra lo aprendido: arrastra o selecciona las plantas y colócalas en su categoría técnica correspondiente antes de que termine el tiempo.
+                    </p>
+                </div>
+
+                <!-- Game Stats Bar -->
+                <div class="bg-slate-800/90 rounded-2xl p-4 sm:p-6 mb-8 border border-slate-700 flex flex-wrap justify-between items-center gap-4 shadow-xl">
+                    <div class="flex items-center gap-6">
+                        <div>
+                            <p class="text-xs text-slate-400 uppercase font-semibold">Puntuación</p>
+                            <p id="score-display" class="text-2xl font-black text-emerald-400">0 pts</p>
+                        </div>
+                        <div class="h-8 w-px bg-slate-700"></div>
+                        <div>
+                            <p class="text-xs text-slate-400 uppercase font-semibold">Aciertos</p>
+                            <p id="streak-display" class="text-2xl font-black text-teal-400">0 / 7</p>
+                        </div>
+                    </div>
+                    <button id="reset-game-btn" class="px-5 py-2.5 bg-slate-700 hover:bg-slate-600 text-white font-semibold text-sm rounded-xl transition-all flex items-center gap-2">
+                        <i class="fa-solid fa-rotate-right"></i> Reiniciar Juego
+                    </button>
+                </div>
+
+                <!-- Plant Pool / Source Items -->
+                <div class="mb-10">
+                    <p class="text-xs uppercase tracking-wider font-bold text-slate-400 mb-3">Plantas por Clasificar:</p>
+                    <div id="plant-pool" class="flex flex-wrap gap-3 min-h-[70px] p-4 bg-slate-800/50 rounded-2xl border border-slate-700/60 items-center justify-center sm:justify-start">
+                        <!-- Plant cards will be dynamically injected here -->
+                    </div>
+                </div>
+
+                <!-- Drop Zones Container -->
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    
+                    <!-- Drop Zone: Ideal -->
+                    <div id="zone-ideal" data-category="ideal" class="drop-zone bg-slate-800/70 border-2 border-dashed border-emerald-500/50 rounded-2xl p-5 min-h-[220px] transition-all flex flex-col justify-between">
+                        <div>
+                            <div class="flex items-center gap-3 mb-4 text-emerald-400">
+                                <i class="fa-solid fa-circle-check text-2xl"></i>
+                                <h3 class="font-bold text-lg text-white">1. Ideal / Principal</h3>
+                            </div>
+                            <p class="text-xs text-slate-400 mb-4">Crecimiento óptimo en agua directa y soluciones nutritivas estándar.</p>
+                            <div class="slotted-items space-y-2"></div>
+                        </div>
+                    </div>
+
+                    <!-- Drop Zone: Opcional -->
+                    <div id="zone-opcional" data-category="opcional" class="drop-zone bg-slate-800/70 border-2 border-dashed border-amber-500/50 rounded-2xl p-5 min-h-[220px] transition-all flex flex-col justify-between">
+                        <div>
+                            <div class="flex items-center gap-3 mb-4 text-amber-400">
+                                <i class="fa-solid fa-sliders text-2xl"></i>
+                                <h3 class="font-bold text-lg text-white">2. Opcional / Especial</h3>
+                            </div>
+                            <p class="text-xs text-slate-400 mb-4">Requiere sustrato denso, espacio masivo o flujo constante oxigenado.</p>
+                            <div class="slotted-items space-y-2"></div>
+                        </div>
+                    </div>
+
+                    <!-- Drop Zone: No Recomendado -->
+                    <div id="zone-norecom" data-category="norecom" class="drop-zone bg-slate-800/70 border-2 border-dashed border-rose-500/50 rounded-2xl p-5 min-h-[220px] transition-all flex flex-col justify-between">
+                        <div>
+                            <div class="flex items-center gap-3 mb-4 text-rose-400">
+                                <i class="fa-solid fa-circle-xmark text-2xl"></i>
+                                <h3 class="font-bold text-lg text-white">3. No Recomendado</h3>
+                            </div>
+                            <p class="text-xs text-slate-400 mb-4">Tubérculos o raíces gruesas que sufren pudrición o malformación en agua.</p>
+                            <div class="slotted-items space-y-2"></div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- Win Overlay / Feedback Message -->
+                <div id="game-feedback" class="mt-8 hidden p-6 bg-emerald-950/80 border border-emerald-500/50 rounded-2xl text-center">
+                    <i class="fa-solid fa-trophy text-4xl text-amber-400 mb-2"></i>
+                    <h4 class="text-2xl font-black text-white">¡Excelente Trabajo Técnico!</h4>
+                    <p class="text-emerald-200 text-sm mt-1">Has clasificado correctamente todas las especies hidropónicas.</p>
+                </div>
+
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-slate-950 text-slate-400 py-8 border-t border-slate-800 text-sm">
+        <div class="max-w-7xl mx-auto px-4 text-center sm:flex sm:justify-between sm:text-left">
+            <p>© 2026 Sistema Hidropónico & Tecnologia Agrícola. Todos los derechos reservados.</p>
+            <p class="mt-2 sm:mt-0">Innovación en Agricultura Urbana y Eficiente.</p>
+        </div>
+    </footer>
+
+    <!-- Modal for Detailed Plant Information -->
+    <div id="plant-modal" class="fixed inset-0 z-50 hidden bg-slate-900/60 backdrop-blur-sm flex items-center justify-center p-4">
+        <div class="bg-white rounded-3xl max-w-2xl w-full max-h-[90vh] overflow-y-auto shadow-2xl border border-slate-100 p-6 sm:p-8 relative animate-in fade-in zoom-in duration-200">
+            <button onclick="closePlantModal()" class="absolute top-6 right-6 text-slate-400 hover:text-slate-600 p-2 rounded-full hover:bg-slate-100 transition-colors">
+                <i class="fa-solid fa-xmark text-xl"></i>
+            </button>
+            <div id="modal-content">
+                <!-- Content will be filled by JS -->
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const plantData = {
+            aromaticas: {
+                title: "Plantas Aromáticas (Albahaca, Menta, Romero, Cilantro)",
+                category: "Recomendada / Principal",
+                badgeBg: "bg-emerald-100 text-emerald-800",
+                icon: "fa-mortar-pestle",
+                iconColor: "text-emerald-600",
+                ph: "5.5 - 6.5",
+                ec: "1.0 - 1.6 mS/cm",
+                light: "6 - 8 horas de luz solar/LED diaria",
+                care: "Sustrato de rápida aireación o técnicas NFT/DWC. Requiere poda continua para estimular follaje denso y evitar la floración prematura que amarga el sabor.",
+                production: "Cosechas continuas cada 3 - 4 semanas. Excelente adaptación comercial por su alto valor en fresco y respuesta rápida en raíz flotante.",
+                system: "NFT (Nutrient Film Technique), DWC (Deep Water Culture)"
+            },
+            lechuga: {
+                title: "Lechuga (Crespa, Romana, Batavia)",
+                category: "Recomendada / Principal",
+                badgeBg: "bg-emerald-100 text-emerald-800",
+                icon: "fa-leaf",
+                iconColor: "text-emerald-600",
+                ph: "5.6 - 6.0",
+                ec: "0.8 - 1.2 mS/cm",
+                light: "12 - 14 horas de luz moderada",
+                care: "Mantener temperaturas frescas en el agua (18-22°C) para evitar el espigado temprano o sabor amargo. Monitorear constantemente los niveles de calcio para prevenir 'tip burn' (quemadura de bordes).",
+                production: "Ciclo super rápido de 30 a 45 días desde germinado. Relleno óptimo por metro cuadrado con rotación continua.",
+                system: "NFT (Tuberías de PVC), Raíz Flotante"
+            },
+            acelga: {
+                title: "Acelga",
+                category: "Opcional / Especial",
+                badgeBg: "bg-amber-100 text-amber-800",
+                icon: "fa-seedling",
+                iconColor: "text-amber-600",
+                ph: "6.0 - 6.8",
+                ec: "1.8 - 2.3 mS/cm",
+                light: "6 - 8 horas de luz solar",
+                care: "Debido al gran tamaño de sus hojas y sistema radicular robusto, exige oxigenación constante de la solución y soportes mecánicos firmes para evitar volcamientos.",
+                production: "Cosechas por corte de hojas exteriores de manera escalonada durante 3-5 meses sin reanimar toda la planta.",
+                system: "Sustrato Inerte (Fibra de coco) o Sistemas DWC profundos"
+            },
+            banano: {
+                title: "Banano (Musa paradisiaca)",
+                category: "Opcional / Especial",
+                badgeBg: "bg-amber-100 text-amber-800",
+                icon: "fa-tree",
+                iconColor: "text-amber-600",
+                ph: "5.5 - 6.5",
+                ec: "1.5 - 2.5 mS/cm",
+                light: "Plena exposición solar (8+ horas)",
+                care: "No es apto para tuberías de agua tradicionales. Su hidroponía se realiza mediante contenedores masivos (50L+) o sacos de sustrato (slabs de lana de roca/coco) con fertirriego por goteo.",
+                production: "Ciclos largos de 9 a 12 meses. Requiere nutrición elevada en potasio y espacio vertical amplio.",
+                system: "Goteo sobre Sustrato masivo"
+            },
+            berro: {
+                title: "Berro de Agua",
+                category: "Opcional / Especial",
+                badgeBg: "bg-amber-100 text-amber-800",
+                icon: "fa-water",
+                iconColor: "text-amber-600",
+                ph: "6.5 - 7.2",
+                ec: "1.0 - 1.8 mS/cm",
+                light: "Luz solar moderada / semisombra",
+                care: "Prospera en agua en movimiento constante con altísimo contenido de oxígeno disuelto. Es susceptible a la acumulación de sedimentos si el flujo de agua no se filtra bien.",
+                production: "Cosecha rápida de tallos carnosos cada 20 días en condiciones de corriente continua.",
+                system: "Canales de flujo constante o Acuaponía"
+            },
+            zanahoria: {
+                title: "Zanahoria (No Recomendado)",
+                category: "No Recomendado",
+                badgeBg: "bg-rose-100 text-rose-800",
+                icon: "fa-carrot",
+                iconColor: "text-rose-600",
+                ph: "6.0 - 6.5",
+                ec: "1.4 - 2.0 mS/cm",
+                light: "Luz solar directa",
+                care: "Incompatible con hidroponía de agua directa (NFT/DWC). La raíz de engorde se deforma, bífida o se pudre por la humedad excesiva en la zona radicular principal.",
+                production: "Solo técnicamente viable en cajones muy profundos de arena o perlita fina, pero no es comercialmente rentable ni eficiente en agua pura.",
+                system: "Sustrato profundo especial (No recomendado en hidroponía clásica)"
+            },
+            papa: {
+                title: "Papa / Patata (No Recomendado)",
+                category: "No Recomendado",
+                badgeBg: "bg-rose-100 text-rose-800",
+                icon: "fa-cookie",
+                iconColor: "text-rose-600",
+                ph: "5.5 - 6.0",
+                ec: "1.8 - 2.4 mS/cm",
+                light: "Luz solar en follaje, oscuridad en estolones",
+                care: "Los tubérculos necesitan oscuridad absoluta y un medio seco/aireado para engordar. Sumergirlos en agua provoca asfixia radicular y pudrición inmediata.",
+                production: "Se cultiva exclusivamente bajo sistemas de Aeroponía avanzada en laboratorios para semilla biológica, pero no en hidroponía tradicional de consumo masivo.",
+                system: "Aeroponía industrial (Nubes de aspersión)"
+            }
+        };
+
+        function openPlantModal(plantKey) {
+            const data = plantData[plantKey];
+            if (!data) return;
+
+            const modalContent = document.getElementById('modal-content');
+            modalContent.innerHTML = `
+                <div class="flex items-center gap-4 mb-6">
+                    <div class="w-16 h-16 rounded-2xl bg-slate-100 flex items-center justify-center ${data.iconColor} text-3xl">
+                        <i class="fa-solid ${data.icon}"></i>
+                    </div>
+                    <div>
+                        <span class="inline-block px-3 py-1 rounded-full text-xs font-bold ${data.badgeBg} mb-1">${data.category}</span>
+                        <h3 class="text-2xl font-extrabold text-slate-900">${data.title}</h3>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 mb-6 text-sm">
+                    <div class="bg-slate-50 p-3 rounded-xl border border-slate-100">
+                        <p class="text-slate-400 text-xs font-semibold uppercase">pH Óptimo</p>
+                        <p class="font-bold text-slate-800 mt-0.5">${data.ph}</p>
+                    </div>
+                    <div class="bg-slate-50 p-3 rounded-xl border border-slate-100">
+                        <p class="text-slate-400 text-xs font-semibold uppercase">EC (Conductividad)</p>
+                        <p class="font-bold text-slate-800 mt-0.5">${data.ec}</p>
+                    </div>
+                    <div class="bg-slate-50 p-3 rounded-xl border border-slate-100">
+                        <p class="text-slate-400 text-xs font-semibold uppercase">Luz Requerida</p>
+                        <p class="font-bold text-slate-800 mt-0.5">${data.light}</p>
+                    </div>
+                </div>
+
+                <div class="space-y-4 text-sm text-slate-600">
+                    <div class="p-4 bg-emerald-50/50 rounded-2xl border border-emerald-100/60">
+                        <h4 class="font-bold text-emerald-900 mb-1 flex items-center gap-2">
+                            <i class="fa-solid fa-hand-holding-droplet text-emerald-600"></i> Cuidados Específicos
+                        </h4>
+                        <p class="leading-relaxed">${data.care}</p>
+                    </div>
+
+                    <div class="p-4 bg-teal-50/50 rounded-2xl border border-teal-100/60">
+                        <h4 class="font-bold text-teal-900 mb-1 flex items-center gap-2">
+                            <i class="fa-solid fa-chart-line text-teal-600"></i> Producción y Rendimiento
+                        </h4>
+                        <p class="leading-relaxed">${data.production}</p>
+                    </div>
+
+                    <div class="p-3 bg-slate-100 rounded-xl flex items-center justify-between text-xs text-slate-700">
+                        <span class="font-bold">Sistemas Recomendados:</span>
+                        <span class="font-medium text-slate-900">${data.system}</span>
+                    </div>
+                </div>
+            `;
+
+            document.getElementById('plant-modal').classList.remove('hidden');
+        }
+
+        function closePlantModal() {
+            document.getElementById('plant-modal').classList.add('hidden');
+        }
+
+        const gameItems = [
+            { id: 'item-1', name: 'Aromáticas', category: 'ideal', icon: 'fa-mortar-pestle' },
+            { id: 'item-2', name: 'Lechuga', category: 'ideal', icon: 'fa-leaf' },
+            { id: 'item-3', name: 'Acelga', category: 'opcional', icon: 'fa-seedling' },
+            { id: 'item-4', name: 'Banano', category: 'opcional', icon: 'fa-tree' },
+            { id: 'item-5', name: 'Berro', category: 'opcional', icon: 'fa-water' },
+            { id: 'item-6', name: 'Zanahoria', category: 'norecom', icon: 'fa-carrot' },
+            { id: 'item-7', name: 'Papa', category: 'norecom', icon: 'fa-cookie' }
+        ];
+
+        let currentScore = 0;
+        let matchedCount = 0;
+        let selectedPlant = null;
+
+        function initGame() {
+            currentScore = 0;
+            matchedCount = 0;
+            selectedPlant = null;
+
+            document.getElementById('score-display').textContent = '0 pts';
+            document.getElementById('streak-display').textContent = `0 / ${gameItems.length}`;
+            document.getElementById('game-feedback').classList.add('hidden');
+
+            // Clear drop zones
+            document.querySelectorAll('.slotted-items').forEach(el => el.innerHTML = '');
+
+            // Render plant pool
+            const pool = document.getElementById('plant-pool');
+            pool.innerHTML = '';
+
+            // Shuffle array
+            const shuffled = [...gameItems].sort(() => Math.random() - 0.5);
+
+            shuffled.forEach(item => {
+                const card = document.createElement('div');
+                card.id = item.id;
+                card.draggable = true;
+                card.dataset.category = item.category;
+                card.className = 'plant-card bg-slate-700 hover:bg-slate-600 text-white border border-slate-600 px-4 py-2.5 rounded-xl cursor-grab active:cursor-grabbing font-bold text-sm flex items-center gap-2 shadow-md transition-all transform hover:-translate-y-0.5 select-none';
+                card.innerHTML = `<i class="fa-solid ${item.icon} text-emerald-400"></i> ${item.name}`;
+
+                // Drag events
+                card.addEventListener('dragstart', handleDragStart);
+                
+                // Click for mobile alternative
+                card.addEventListener('click', () => handleMobileSelect(card));
+
+                pool.appendChild(card);
+            });
+        }
+
+        /* Drag & Drop Handlers */
+        function handleDragStart(e) {
+            e.dataTransfer.setData('text/plain', e.target.id);
+        }
+
+        const dropZones = document.querySelectorAll('.drop-zone');
+        dropZones.forEach(zone => {
+            zone.addEventListener('dragover', (e) => {
+                e.preventDefault();
+                zone.classList.add('drag-over');
+            });
+
+            zone.addEventListener('dragleave', () => {
+                zone.classList.remove('drag-over');
+            });
+
+            zone.addEventListener('drop', (e) => {
+                e.preventDefault();
+                zone.classList.remove('drag-over');
+                const itemId = e.dataTransfer.getData('text/plain');
+                const card = document.getElementById(itemId);
+                if (card) {
+                    processPlacement(card, zone);
+                }
+            });
+
+            // Mobile click-to-place handler
+            zone.addEventListener('click', () => {
+                if (selectedPlant) {
+                    processPlacement(selectedPlant, zone);
+                    deselectPlant();
+                }
+            });
+        });
+
+        function handleMobileSelect(card) {
+            if (selectedPlant === card) {
+                deselectPlant();
+                return;
+            }
+            if (selectedPlant) {
+                selectedPlant.classList.remove('ring-4', 'ring-emerald-400');
+            }
+            selectedPlant = card;
+            card.classList.add('ring-4', 'ring-emerald-400');
+        }
+
+        function deselectPlant() {
+            if (selectedPlant) {
+                selectedPlant.classList.remove('ring-4', 'ring-emerald-400');
+                selectedPlant = null;
+            }
+        }
+
+        function processPlacement(card, zone) {
+            const targetCategory = zone.dataset.category;
+            const cardCategory = card.dataset.category;
+
+            if (targetCategory === cardCategory) {
+                // Correct match
+                currentScore += 100;
+                matchedCount++;
+
+                // Visual slot styling
+                const slot = zone.querySelector('.slotted-items');
+                card.draggable = false;
+                card.className = 'bg-emerald-900/60 border border-emerald-500/50 text-emerald-200 px-3 py-2 rounded-lg text-sm font-semibold flex items-center justify-between animate-in fade-in duration-300';
+                card.innerHTML += `<i class="fa-solid fa-check text-emerald-400"></i>`;
+                slot.appendChild(card);
+
+                updateStats();
+
+                if (matchedCount === gameItems.length) {
+                    document.getElementById('game-feedback').classList.remove('hidden');
+                }
+            } else {
+                // Incorrect match animation
+                card.classList.add('animate-bounce');
+                setTimeout(() => card.classList.remove('animate-bounce'), 1000);
+            }
+        }
+
+        function updateStats() {
+            document.getElementById('score-display').textContent = `${currentScore} pts`;
+            document.getElementById('streak-display').textContent = `${matchedCount} / ${gameItems.length}`;
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            initGame();
+
+            document.getElementById('reset-game-btn').addEventListener('click', initGame);
+
+            // Mobile menu toggle
+            const menuBtn = document.getElementById('mobile-menu-btn');
+            const mobileMenu = document.getElementById('mobile-menu');
+            menuBtn.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+            });
+
+            // Close modal on click outside
+            const modal = document.getElementById('plant-modal');
+            modal.addEventListener('click', (e) => {
+                if (e.target === modal) closePlantModal();
+            });
+        });
+    </script>
+</body>
+</html>
